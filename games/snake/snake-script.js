@@ -108,15 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
     squares[appleIndex].classList.add("apple");
   }
 
-  //not working
+  //There is a bug where if you press two arrow keys in quick succession it registers both the inputs. This is can lead to direction being set to the opposite direction, leading to a game over.
   function control(e) {
-    if (e.keycode === 39) {
+    console.log("Balls");
+    if (e.key === "ArrowRight" && direction != -1) {
       direction = 1; // right
-    } else if (e.keycode === 38) {
+    } else if (e.key === "ArrowUp" && direction != +width) {
       direction = -width; //if we press the up arrow, the snake will go ten divs up
-    } else if (e.keycode === 37) {
+    } else if (e.key === "ArrowLeft" && direction != 1) {
       direction = -1; // left, the snake will go left one div
-    } else if (e.keycode === 40) {
+    } else if (e.key === "ArrowDown" && direction != -width) {
       direction = +width; // down the snake head will instantly appear 10 divs below from the current div
     }
   }
