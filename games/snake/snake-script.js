@@ -16,7 +16,7 @@ let score = 0;
 let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
-
+let controlCalledThisTick = false;
 /* DOMContentLoaded event is fired once html content has finished loading */
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keydown", control);
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* This function makes the game board. Each square of the board is a div. TODO: maybe make board size not fixed. */
   function createBoard() {
     popup.style.display = "none";
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
         /* Make a div element */
       let div = document.createElement("div");
         /* make newly created div a child of the grid element */
@@ -38,6 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function resetBoard(){
+    //clear the board before bulding a new one
+    while(grid.firstChild){
+      grid.removeChild(grid.lastChild);
+    }
+    popup.style.display = "none";
+    for (let i = 0; i < 100; i++) {
+      /* Make a div element */
+    let div = document.createElement("div");
+      /* make newly created div a child of the grid element */
+    grid.appendChild(div);
+  }
+
+  }
   function startGame() {
     /* get divs here since they are created durting runtime */
     let squares = document.querySelectorAll(".grid div");
@@ -53,8 +67,10 @@ document.addEventListener("DOMContentLoaded", function () {
     interval = setInterval(moveOutcome, intervalTime);
   }
 
+  //this function is called every tick
   function moveOutcome() {
     let squares = document.querySelectorAll(".grid div");
+    controlCalledThisTick = false;
     if (checkForHits(squares)) {
       alert("you hit something");
       popup.style.display = "flex";
@@ -111,15 +127,18 @@ document.addEventListener("DOMContentLoaded", function () {
   //There is a bug where if you press two arrow keys in quick succession it registers both the inputs. This is can lead to direction being set to the opposite direction, leading to a game over.
   function control(e) {
     console.log("Balls");
-    if (e.key === "ArrowRight" && direction != -1) {
-      direction = 1; // right
-    } else if (e.key === "ArrowUp" && direction != +width) {
-      direction = -width; //if we press the up arrow, the snake will go ten divs up
-    } else if (e.key === "ArrowLeft" && direction != 1) {
-      direction = -1; // left, the snake will go left one div
-    } else if (e.key === "ArrowDown" && direction != -width) {
-      direction = +width; // down the snake head will instantly appear 10 divs below from the current div
+    if(controlCalledThisTick === false){
+      if (e.key === "ArrowRight" && direction != -1) {
+        direction = 1; // right
+      } else if (e.key === "ArrowUp" && direction != +width) {
+        direction = -width; //if we press the up arrow, the snake will go ten divs up
+      } else if (e.key === "ArrowLeft" && direction != 1) {
+        direction = -1; // left, the snake will go left one div
+      } else if (e.key === "ArrowDown" && direction != -width) {
+        direction = +width; // down the snake head will instantly appear 10 divs below from the current div
+      }  
     }
+    controlCalledThisTick = true;
   }
 
   up.addEventListener("click", () => (direction = -width));
@@ -128,8 +147,7 @@ left.addEventListener("click", () => (direction = -1));
 right.addEventListener("click", () => (direction = 1));
 
 function replay() {
-    grid.innerHTML = "";
-    createBoard();
+    resetBoard();
     startGame();
     popup.style.display = "none";
   }
