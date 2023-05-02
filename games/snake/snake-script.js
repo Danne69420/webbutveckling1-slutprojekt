@@ -17,6 +17,16 @@ let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 let controlCalledThisTick = false;
+
+let optionsButton = document.getElementById("options");
+optionsButton.addEventListener("click", () => {
+  if(optionsButton.classList.contains("open")){
+    optionsButton.classList.remove("open");
+  }
+  else{
+    optionsButton.classList.add("open");
+  }
+})
 /* DOMContentLoaded event is fired once html content has finished loading */
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keydown", control);
