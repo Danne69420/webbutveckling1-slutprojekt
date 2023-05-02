@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-/* This function makes the game board. Each square of the board is a div. TODO: maybe make board size not fixed. */
+/* This function makes the game board. Each square of the board is a div. TODO: maybe make board size not fixed. 
+   For some reason the first time we create the board it becomes twice as big as we want it to. No clue why this happens, but for now i just make half as many divs the first time-*/
   function createBoard() {
     popup.style.display = "none";
     for (let i = 0; i < 50; i++) {
