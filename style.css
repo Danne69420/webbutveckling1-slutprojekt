@@ -1,94 +1,200 @@
-#options {
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    padding-left: 1.5em;
-    background: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    transform: scale(0.5);
-    transform-origin: top left;
-    transition: 100ms transform;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  #options:before {
-    display: block;
-    content: "";
-    cursor: pointer;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0.35em 0 0.35em 0.7em;
-    border-color: transparent transparent transparent white;
-    position: absolute;
-    top: 0.75em;
-    left: 0.75em;
-    margin-left: -0.35em;
-    margin-top: -0.35em;
-  }
-  #options:not(.open):hover {
-    transform: scale(0.8);
-  }
-  #options.open {
-    background: black;
-    transform: scale(1);
-  }
-  #options.open:before {
-    transform: rotate(90deg);
-  }
-  #options.open #title {
-    cursor: default;
-  }
-  #options.open .title {
-    cursor: default;
-    color:rgb(212, 211, 211);
-  }
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
-  #options.open .option {
-    display: block;
-  }
-  #options #title {
-    background: rgba(255, 255, 255, 0.5);
-    padding: 0.25em 0.5em;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-  }
-  #options .option {
-    display: none;
-    padding: 0.5em 0.5em;
-  }
-  #options .option:not(:last-child) {
-    border-bottom: 1px solid #333333;
-  }
-  #options .option label {
-    cursor: pointer;
-    display: flex;
-  }
-  #options .option label input {
-    margin-right: 0.5em;
-    flex-shrink: 1;
-    color: white;
-  }
-  #options .option label input[type=button], #options .option label input[type=number], #options .option label input[type=text] {
-    background: #242424;
-    border: 1px solid #2e2e2e;
-    padding: 0.15em 0.6em;
-    border-radius: 2px;
-  }
-  #options .option label input[type=button] {
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  #options .option label input[type=number] {
-    width: 100px;
-  }
-  #options .option label input[type=checkbox] {
-    transform: scale(1.25);
-    cursor: pointer;
-  }
- #options .option a{
-    color: white;
- }
-  
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body { 
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
+}
+
+h1 {
+   font-size: 250%
+}
+
+p {
+  font-size: 140%;
+  line-height: 150%;
+  color: #333;
+}
+
+.slide {
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style: inherit;
+}
+
+img {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
+
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.slide, .slide:before {
+  background: 50% 50% / cover;  
+}
+
+.header {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
+
+#title {
+  background-image: url("https://picsum.photos/640/480");
+  z-index:2;
+}
+
+#title h1 {
+ transform: translateZ(.25px) scale(.75);
+ transform-origin: 50% 100%;
+
+}
+
+#slide1:before {
+  background-image: url("https://picsum.photos/960/520");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide2 {
+  background-image: url("https://picsum.photos/960/400");
+  z-index:2;
+}
+
+#slide3:before {
+  background-image: url("https://picsum.photos/980/600");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background: #222;
+}
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.main {
+  transition: margin-left .5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#menuButton {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: rgb(255, 255, 255);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+header{
+  z-index: 5;
+  background-color: #111;
+  /*position fixed does not seem to be working properly*/
+  position: fixed;
+  width: 100%;
+  height: 120px;
+  left: 0px;
+  top: 0px;
+}
+

@@ -8,34 +8,59 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <nav>
-            <div id="options">
-                <div id="title">Options</div>
-                <div class="option">
-                    <a href="games/snake/snake.html">snake</a>
-                </div>
-                <div class="option">
-                    <a href="coming-soon.html">pac man</a>
-                </div>
-                <div class="option">
-                    <a href="coming-soon.html">minesweeper</a>
-                </div>
-                <div class="option">
-                    <a href="coming-soon.html">space invaders</a>
-                </div>
-                <div class="option">
-                  <label>
-                    <input id="smoothed-mouse-tracking" type="checkbox" checked="checked"/>
-                    <div class="title">Smoothed mouse tracking</div>
-                  </label>
-                </div>
-            </div>
-        </nav>    
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Snake</a>
+            <a href="#">Minesweeper</a>
+            <a href="#">Pac-Man</a>
+            <a href="#">Space Invaders</a>
+            <a href="#">Tetris</a>
+        </div>
+          
+         <!--Use any element to open the sidenav //this is a comment-->
+        <span onclick="openNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </span>
+    
     </header>
-    <section>
-        <h1>Javascript Arcade</h1>
-    </section>
+
+
+      
+<!--I want to pit all of the elements below in a div so i can push them to the side when opening the menu, but doing this breaks pretty much everything for some reason. -->
+
+<div id="title" class="slide header">
+  <h1>Pure CSS Parallax</h1>
+</div>
+
+<div id="slide1" class="slide">
+  <div class="title">
+    <h1>Slide 1</h1>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+  </div>
+</div>
+
+<div id="slide2" class="slide">
+  <div class="title">
+    <h1>Slide 2</h1>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+  </div>
+</div>
+
+<div id="slide3" class="slide">
+  <div class="title">
+    <h1>Slide 3</h1>
+    <p>Lorem ipsum dolor sit amet, in velit iudico mandamus sit, persius dolorum in per, postulant mnesarchum cu nam. Malis movet ornatus id vim, feugait detracto est ea, eam eruditi conceptam in. Ne sit explicari interesset. Labores perpetua cum at. Id viris docendi denique vim.</p>
+  </div>
+</div>
+
+<div id="slide4" class="slide header">
+    <h1>The End</h1>
+</div>
+
 
     <script src="script.js"></script>
 </body>
