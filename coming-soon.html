@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="coming-soon.css" rel="stylesheet">
 </head>
 <body>
-    <h>Coming Soon!</h>
-    <p>Looks like this page isn't finished yet. Come back at a later time!</p>
-    <a href="index.html">HOME</a>
+    <header>
+      
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+            <a href="games/snake/snake.html">Snake</a>
+            <a href="coming-soon.html">Minesweeper</a>
+            <a href="coming-soon.html">Pac-Man</a>
+            <a href="coming-soon.html">Space Invaders</a>
+            <a href="coming-soon.html">Tetris</a>
+        </div>
+          
+         <!--Use any element to open the sidenav //this is a comment-->
+        <span onclick="openNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </span>
+    </header>
+
+<div id="main">
+    <div id="title" class="slide header">
+        <h1>Coming Soon!</h1>
+        <h3>Looks like this page isn't finished yet. Come back at a later time!</h3>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
