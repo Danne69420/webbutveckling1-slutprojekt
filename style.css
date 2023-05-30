@@ -11,7 +11,7 @@ body {
 	perspective: 1px;
 	transform-style: preserve-3d;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   font-family: Nunito;
 }
@@ -36,23 +36,6 @@ p {
 	transform-style: inherit;
 }
 
-img {
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  width: 320px;
-  height: 240px;
-  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
-  padding: 10px;
-  border-radius: 5px;
-  background: rgba(240,230,220, .7);
-  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
-}
-
-img:last-of-type {
-  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
-}
-
 .slide:before {
   content: "";
   position: absolute;
@@ -67,24 +50,17 @@ img:last-of-type {
   width: 50%;
   padding: 5%;
   border-radius: 5px;
-  background: rgba(240,230,220, .7);
+  background: rgba(240,230,220, .9);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
-}
-
-.slide:nth-child(2n) .title {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.slide:nth-child(2n+1) .title {
-  margin-left: auto;
-  margin-right: 0;
 }
 
 .slide, .slide:before {
   background: 50% 50% / cover;  
 }
-
+.slide .title{
+  margin-left: auto;
+  margin-right: auto;
+}
 .header {
   text-align: center;
   font-size: 175%;
@@ -93,32 +69,43 @@ img:last-of-type {
 }
 
 #title {
-  background-image: url("https://picsum.photos/640/480");
+  background-image: url("images/arcade.jpg");
   z-index:2;
 }
 
 #title h1 {
  transform: translateZ(.25px) scale(.75);
  transform-origin: 50% 100%;
-
+ border-bottom-style: solid;
+ border-bottom-color: #fff;
 }
 
 #slide1:before {
-  background-image: url("https://picsum.photos/960/520");
+  background-image: url("images/snake-game.png");
   transform: translateZ(-1px) scale(2);
 }
 
 #slide2 {
-  background-image: url("https://picsum.photos/960/400");
+  background-image: url("images/minesweeper.png");
   z-index:2;
 }
 
 #slide3:before {
-  background-image: url("https://picsum.photos/980/600");
+  background-image: url("images/Pac-Man.png");
   transform: translateZ(-1px) scale(2);
 }
 
 #slide4 {
+  background-image: url("images/space-invaders.jpg");
+  z-index: 2;
+}
+
+#slide5:before {
+  background-image: url("images/Tetris.png");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide6 {
   background: #222;
 }
 
@@ -143,7 +130,7 @@ img:last-of-type {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 160%;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -164,8 +151,16 @@ img:last-of-type {
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-.main {
+#main {
   transition: margin-left .5s;
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -193,7 +188,7 @@ header{
   /*position fixed does not seem to be working properly*/
   position: fixed;
   width: 100%;
-  height: 120px;
+  height: 60px;
   left: 0px;
   top: 0px;
 }
