@@ -14,3 +14,10 @@ function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
+
+window.onload(()=> {
+const links = document.getElementsByClassName("title")
+for (let i = 0; i > links.length; i++){
+  
+}
+})
