@@ -1,12 +1,13 @@
 <!-- https://www.freecodecamp.org/news/how-to-build-a-snake-game-in-javascript/ -->
 
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="A snake game made in javascript">
+    <title>Snake</title>
     
     <link href="snake-style.css" rel="stylesheet">
 </head>
@@ -25,11 +26,11 @@
     </div>
       
      <!--Use any element to open the sidenav //this is a comment-->
-    <span onclick="openNav()">
+    <div onclick="openNav()">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
-    </span>
+    </div>
 </header>
 
 <div id="main">
@@ -45,10 +46,10 @@
         <h1 class="scoreDisplay">Score: </h1>
         <div class="grid"></div>
         <div class="button">
-          <button id="top">&#8593</button>
-          <button id="left">&#8592</button>
-          <button id="bottom">&#8595</button>
-          <button id="right">&#8594</button>
+          <button id="top">&#8593;</button>
+          <button id="left">&#8592;</button>
+          <button id="bottom">&#8595;</button>
+          <button id="right">&#8594;</button>
         </div>
         <div class="popup">
           <button class="playAgain">play Again</button>
@@ -56,7 +57,7 @@
     
       </div>
     </div>
-    
+    </div>
     <script src="snake-script.js"></script>
     <script src="../../script.js"></script>
 </body>

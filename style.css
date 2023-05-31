@@ -202,7 +202,8 @@ header{
 	color:#ffffff;
 	font-size:17px;
 	padding:16px 31px;
-	text-decoration:none;
+	text-decoration:underline;
+  
 }
 .playButton:hover {
 	background-color:#5cbf2a;
