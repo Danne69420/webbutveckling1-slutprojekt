@@ -193,3 +193,21 @@ header{
   top: 0px;
 }
 
+.playButton {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+}
+.playButton:hover {
+	background-color:#5cbf2a;
+}
+.playButton:active {
+	position:relative;
+	top:1px;
+}
