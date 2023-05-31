@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let squares = document.querySelectorAll(".grid div");
     controlCalledThisTick = false;
     if (checkForHits(squares)) {
-      alert("you hit something");
       popup.style.display = "flex";
       return clearInterval(interval);
     } else {
