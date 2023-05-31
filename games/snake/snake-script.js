@@ -1,12 +1,14 @@
+
+
 let grid = document.querySelector(".grid");
 let popup = document.querySelector(".popup");
 let playAgain = document.querySelector(".playAgain");
 console.log(playAgain);
 let scoreDisplay = document.querySelector(".scoreDisplay");
-let left = document.querySelector(".left");
-let bottom = document.querySelector(".bottom");
-let right = document.querySelector(".right");
-let up = document.querySelector(".top");
+let left = document.getElementById("left");
+let bottom = document.getElementById("bottom");
+let right = document.getElementById("right");
+let up = document.getElementById("top");
 let width = 10;
 let currentIndex = 0;
 let appleIndex = 0;
@@ -18,17 +20,12 @@ let intervalTime = 0;
 let interval = 0;
 let controlCalledThisTick = false;
 
-let optionsButton = document.getElementById("options");
-optionsButton.addEventListener("click", () => {
-  if(optionsButton.classList.contains("open")){
-    optionsButton.classList.remove("open");
-  }
-  else{
-    optionsButton.classList.add("open");
-  }
-})
 /* DOMContentLoaded event is fired once html content has finished loading */
 document.addEventListener("DOMContentLoaded", function () {
+  up.addEventListener("click", () => (direction = -width));
+  bottom.addEventListener("click", () => (direction = +width));
+  left.addEventListener("click", () => (direction = -1));
+  right.addEventListener("click", () => (direction = 1));
     document.addEventListener("keydown", control);
     createBoard();
     startGame();
@@ -69,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     randomApple(squares);
     //random apple 
     direction = 1;
-    scoreDisplay.innerHTML = score;
+    scoreDisplay.innerHTML = "Score: " + score;
     intervalTime = 1000;
     currentSnake = [2, 1, 0];
     currentIndex = 0;
@@ -121,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
       currentSnake.push(tail);
       randomApple(squares);
       score++;
-      scoreDisplay.textContent = score;
+      scoreDisplay.textContent = "Score: " + score;
       clearInterval(interval);
       intervalTime = intervalTime * speed;
       interval = setInterval(moveOutcome, intervalTime);
@@ -152,10 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
     controlCalledThisTick = true;
   }
 
-  up.addEventListener("click", () => (direction = -width));
-bottom.addEventListener("click", () => (direction = +width));
-left.addEventListener("click", () => (direction = -1));
-right.addEventListener("click", () => (direction = 1));
 
 function replay() {
     resetBoard();
